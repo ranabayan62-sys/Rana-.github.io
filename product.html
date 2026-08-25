@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,6 +13,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #070b14;
@@ -23,6 +27,10 @@
     header {
       padding: 20px 8%;
       border-bottom: 1px solid #20283a;
+      position: sticky;
+      top: 0;
+      background: rgba(7, 11, 20, 0.95);
+      z-index: 10;
     }
 
     header a {
@@ -30,15 +38,29 @@
       text-decoration: none;
     }
 
+    header a:hover {
+      color: white;
+    }
+
     main {
       max-width: 900px;
       margin: auto;
-      padding: 80px 8%;
+      padding: 70px 8%;
     }
 
     .product-icon {
       font-size: 80px;
       margin-bottom: 25px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #30456d;
+      border-radius: 30px;
+      color: #8fc5ff;
+      margin-bottom: 25px;
+      font-size: 14px;
     }
 
     h1 {
@@ -50,6 +72,7 @@
     .description {
       color: #aeb9cc;
       font-size: 19px;
+      max-width: 700px;
       margin-bottom: 30px;
     }
 
@@ -78,6 +101,12 @@
       list-style: none;
     }
 
+    .note {
+      color: #9ca9bd;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
     .button {
       display: inline-block;
       padding: 15px 25px;
@@ -86,6 +115,12 @@
       text-decoration: none;
       border-radius: 8px;
       margin-right: 10px;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: #2687e8;
+      transform: translateY(-2px);
     }
 
     .back {
@@ -99,6 +134,16 @@
       border-top: 1px solid #20283a;
       color: #718096;
     }
+
+    @media (max-width: 700px) {
+      main {
+        padding-top: 50px;
+      }
+
+      .button {
+        margin-bottom: 10px;
+      }
+    }
   </style>
 </head>
 
@@ -110,13 +155,16 @@
 
   <main>
 
-    <div class="product-icon">📘</div>
+    <div class="badge">🌿 Digital Coloring Book</div>
 
-    <h1>AI Business Starter Guide</h1>
+    <div class="product-icon">🌿</div>
+
+    <h1>Nature Adventures — Coloring Book</h1>
 
     <p class="description">
-      A beginner-friendly digital guide for understanding
-      how an AI-powered business can be planned and organized.
+      Escape into nature with a relaxing digital coloring book
+      filled with original nature-inspired scenes to color,
+      explore, and enjoy.
     </p>
 
     <div class="price">$9.99</div>
@@ -126,27 +174,32 @@
       <h2>What's included?</h2>
 
       <ul>
-        <li>✓ AI business planning concepts</li>
-        <li>✓ Business organization framework</li>
-        <li>✓ AI department planning ideas</li>
-        <li>✓ Digital planning resources</li>
-        <li>✓ Beginner-friendly explanations</li>
+        <li>✓ Original nature-inspired coloring pages</li>
+        <li>✓ Animals, plants, landscapes, and outdoor scenes</li>
+        <li>✓ Printable digital pages</li>
+        <li>✓ Simple designs suitable for relaxing coloring</li>
+        <li>✓ Digital product — no physical shipping</li>
       </ul>
 
     </div>
 
     <a href="#" class="button">
-      Add to Cart
+      Purchase — Coming Soon
     </a>
 
-    <a href="index.html" class="button back">
-      Back to Store
+    <a href="index.html#store" class="button back">
+      ← Back to Store
     </a>
+
+    <p class="note">
+      The purchase system is not connected yet. We are building
+      the product and checkout system next.
+    </p>
 
   </main>
 
   <footer>
-    © 2026 AI Business
+    © 2026 AI Business — Built for an AI-powered future.
   </footer>
 
 </body>
