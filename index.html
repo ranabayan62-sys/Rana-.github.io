@@ -3,50 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>AI Business</title>
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: Arial, sans-serif;
       background: #070b14;
       color: white;
       line-height: 1.6;
     }
-
     header {
       padding: 20px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #20283a;
+      position: sticky;
+      top: 0;
+      background: rgba(7, 11, 20, 0.95);
+      z-index: 10;
     }
-
     .logo {
       font-size: 22px;
       font-weight: bold;
     }
-
     .logo span {
       color: #4da3ff;
     }
-
     nav a {
       color: #cbd5e1;
       text-decoration: none;
       margin-left: 20px;
     }
-
     nav a:hover {
       color: white;
     }
-
     .hero {
       min-height: 75vh;
       display: flex;
@@ -54,11 +52,9 @@
       padding: 70px 8%;
       background: linear-gradient(135deg, #070b14, #101a32);
     }
-
     .hero-content {
       max-width: 800px;
     }
-
     .badge {
       display: inline-block;
       padding: 8px 14px;
@@ -68,24 +64,20 @@
       margin-bottom: 25px;
       font-size: 14px;
     }
-
     h1 {
       font-size: clamp(45px, 8vw, 80px);
       line-height: 1.05;
       margin-bottom: 25px;
     }
-
     h1 span {
       color: #4da3ff;
     }
-
     .hero p {
       color: #aeb9cc;
       font-size: 20px;
       max-width: 650px;
       margin-bottom: 35px;
     }
-
     .button {
       display: inline-block;
       padding: 14px 25px;
@@ -94,139 +86,145 @@
       text-decoration: none;
       border-radius: 8px;
       margin-right: 10px;
+      transition: 0.2s ease;
     }
-
+    .button:hover {
+      transform: translateY(-2px);
+      background: #2687e8;
+    }
     .button.secondary {
       background: transparent;
       border: 1px solid #34425c;
     }
-
+    .button.disabled {
+      background: #202b3d;
+      color: #8290a5;
+      cursor: default;
+      transform: none;
+    }
     section {
       padding: 80px 8%;
     }
-
     .section-title {
       text-align: center;
       font-size: 38px;
       margin-bottom: 15px;
     }
-
     .section-description {
       text-align: center;
       color: #9ca9bd;
       max-width: 650px;
       margin: 0 auto 45px;
     }
-
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
     }
-
     .card {
       background: #0e1524;
       border: 1px solid #202c42;
       padding: 25px;
       border-radius: 14px;
+      transition: 0.2s ease;
     }
-
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #31527f;
+    }
     .card h3 {
       margin: 12px 0;
     }
-
     .card p {
       color: #9ca9bd;
       font-size: 15px;
+      margin-bottom: 10px;
     }
-
     .icon {
       font-size: 30px;
     }
-
     .how {
       background: #0b111e;
     }
-
     .step-number {
       color: #4da3ff;
       font-size: 14px;
       font-weight: bold;
     }
-
+    .store-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .store-card .button {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    .status {
+      color: #4da3ff;
+      font-weight: bold;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
     footer {
       padding: 35px 8%;
       border-top: 1px solid #20283a;
       text-align: center;
       color: #718096;
     }
-
     @media (max-width: 700px) {
       header {
         flex-direction: column;
         gap: 15px;
       }
-
       nav a {
         margin: 0 7px;
         font-size: 14px;
       }
-
       .hero {
         padding-top: 50px;
+      }
+      .button {
+        margin-bottom: 10px;
       }
     }
   </style>
 </head>
-
 <body>
-
   <header>
     <div class="logo">AI<span>Business</span></div>
-
     <nav>
       <a href="#home">Home</a>
       <a href="#team">AI Team</a>
       <a href="#how">How It Works</a>
+      <a href="#store">Store</a>
     </nav>
   </header>
-
   <main>
-
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="hero-content">
-
         <div class="badge">🤖 An AI-operated business</div>
-
         <h1>
           The business<br>
           <span>works with AI.</span>
         </h1>
-
         <p>
           A new kind of online business where artificial intelligence
-          manages products, sales, marketing, customer service and
-          business operations — under the direction of its human owner.
+          helps manage products, sales, marketing, customer service,
+          and business operations — under the direction of its human owner.
         </p>
-
         <a href="#team" class="button">Meet the AI Team</a>
         <a href="#how" class="button secondary">How It Works</a>
-
       </div>
     </section>
-
-
+    <!-- AI TEAM -->
     <section id="team">
-
       <h2 class="section-title">Meet the AI Team</h2>
-
       <p class="section-description">
         Different AI agents have different responsibilities,
         working together under an AI CEO.
       </p>
-
       <div class="cards">
-
         <div class="card">
           <div class="icon">🧠</div>
           <h3>AI CEO</h3>
@@ -235,7 +233,6 @@
             decisions to the owner.
           </p>
         </div>
-
         <div class="card">
           <div class="icon">🛍️</div>
           <h3>Product AI</h3>
@@ -243,15 +240,13 @@
             Researches products and evaluates opportunities.
           </p>
         </div>
-
         <div class="card">
           <div class="icon">📢</div>
           <h3>Marketing AI</h3>
           <p>
-            Creates marketing ideas, campaigns and advertisements.
+            Creates marketing ideas, campaigns, and advertisements.
           </p>
         </div>
-
         <div class="card">
           <div class="icon">💰</div>
           <h3>Pricing AI</h3>
@@ -259,7 +254,6 @@
             Analyzes costs and market information to recommend prices.
           </p>
         </div>
-
         <div class="card">
           <div class="icon">💬</div>
           <h3>Customer AI</h3>
@@ -267,7 +261,6 @@
             Helps customers and answers common questions.
           </p>
         </div>
-
         <div class="card">
           <div class="icon">📊</div>
           <h3>Analytics AI</h3>
@@ -275,167 +268,164 @@
             Studies business performance and provides reports.
           </p>
         </div>
-
       </div>
     </section>
-
-
+    <!-- HOW IT WORKS -->
     <section class="how" id="how">
-
       <h2 class="section-title">How It Works</h2>
-
       <p class="section-description">
         The goal is to automate everyday business operations
         while keeping the owner in control.
       </p>
-
       <div class="cards">
-
         <div class="card">
           <div class="step-number">STEP 01</div>
           <h3>Owner Sets the Rules</h3>
           <p>
-            The owner decides the company's goals, limits and
-            important business rules.
+            The owner decides the company's goals, limits,
+            and important business rules.
           </p>
         </div>
-
         <div class="card">
           <div class="step-number">STEP 02</div>
           <h3>AI CEO Coordinates</h3>
           <p>
-            The AI CEO organizes tasks and coordinates the
+            The AI CEO organizes tasks and coordinates
             specialized AI agents.
           </p>
         </div>
-
         <div class="card">
           <div class="step-number">STEP 03</div>
           <h3>AI Agents Work</h3>
           <p>
-            Specialized agents handle different parts of the
-            business.
+            Specialized agents handle different parts
+            of the business.
           </p>
         </div>
-
         <div class="card">
           <div class="step-number">STEP 04</div>
           <h3>Owner Stays in Control</h3>
           <p>
-            Important decisions can require approval from the
-            human owner.
+            Important decisions can require approval
+            from the human owner.
           </p>
         </div>
-
       </div>
-
     </section>
-
+    <!-- DIGITAL STORE -->
+    <section id="store">
+      <h2 class="section-title">Digital Store</h2>
+      <p class="section-description">
+        Explore original digital products created for
+        creativity, learning, and everyday inspiration.
+      </p>
+      <div class="cards">
+        <!-- REAL PRODUCT -->
+        <div class="card store-card">
+          <div class="icon">🌿</div>
+          <h3>Nature Adventures — Coloring Book</h3>
+          <p>
+            A relaxing digital coloring book filled with
+            original nature-inspired scenes to color and enjoy.
+          </p>
+          <p>
+            <strong>Digital Coloring Book</strong>
+          </p>
+          <a href="product.html" class="button">
+            View Product
+          </a>
+        </div>
+        <!-- FUTURE PRODUCT -->
+        <div class="card store-card">
+          <div class="icon">📊</div>
+          <h3>Business Planning Template</h3>
+          <p>
+            A simple digital template for organizing ideas,
+            goals, projects, and plans.
+          </p>
+          <p>
+            <strong>Digital Template</strong>
+          </p>
+          <span class="button disabled">
+            Coming Soon
+          </span>
+        </div>
+        <!-- FUTURE PRODUCT -->
+        <div class="card store-card">
+          <div class="icon">🤖</div>
+          <h3>AI Workflow Pack</h3>
+          <p>
+            Digital resources for organizing AI-assisted
+            workflows and creative projects.
+          </p>
+          <p>
+            <strong>Digital Resource Pack</strong>
+          </p>
+          <span class="button disabled">
+            Coming Soon
+          </span>
+        </div>
+      </div>
+    </section>
+    <!-- OWNER CONTROL CENTER -->
+    <!--
+      IMPORTANT:
+      This section is currently only a prototype.
+      It is NOT a secure private dashboard yet.
+      Real authentication will be connected later.
+    -->
+    <section id="owner" class="how">
+      <h2 class="section-title">Owner Control Center</h2>
+      <p class="section-description">
+        A future command center for supervising the AI company.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">🧠</div>
+          <h3>AI CEO</h3>
+          <p>Status: <strong>Prototype</strong></p>
+        </div>
+        <div class="card">
+          <div class="icon">👥</div>
+          <h3>AI Team</h3>
+          <p>10 AI departments planned.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛍️</div>
+          <h3>Products</h3>
+          <p>Future product and pricing management.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📦</div>
+          <h3>Orders</h3>
+          <p>Future order monitoring.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📢</div>
+          <h3>Marketing</h3>
+          <p>Future AI marketing management.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💰</div>
+          <h3>Finance</h3>
+          <p>Future revenue and cost tracking.</p>
+        </div>
+        <div class="card">
+          <div class="icon">⚠️</div>
+          <h3>Approvals</h3>
+          <p>Future decision approval system.</p>
+        </div>
+        <div class="card">
+          <div class="icon">⚙️</div>
+          <h3>AI Rules</h3>
+          <p>Future controls for AI agent permissions.</p>
+        </div>
+      </div>
+    </section>
   </main>
-
+  <!-- FOOTER -->
   <footer>
     © 2026 AI Business — Built for an AI-powered future.
   </footer>
-
-<section id="owner" class="how">
-  <h2 class="section-title">Owner Control Center</h2>
-
-  <p class="section-description">
-    Your private command center for supervising the AI company.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="icon">🧠</div>
-      <h3>AI CEO</h3>
-      <p>Status: <strong>Online</strong></p>
-    </div>
-
-    <div class="card">
-      <div class="icon">👥</div>
-      <h3>AI Team</h3>
-      <p>10 AI departments planned.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🛍️</div>
-      <h3>Products</h3>
-      <p>Manage products and pricing.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">📦</div>
-      <h3>Orders</h3>
-      <p>Monitor customer orders.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">📢</div>
-      <h3>Marketing</h3>
-      <p>Monitor AI marketing activity.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💰</div>
-      <h3>Finance</h3>
-      <p>Track revenue, costs and profit.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">⚠️</div>
-      <h3>Approvals</h3>
-      <p>Important decisions waiting for you.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">⚙️</div>
-      <h3>AI Rules</h3>
-      <p>Control what your AI agents are allowed to do.</p>
-    </div>
-
-  </div>
-</section>
-<section id="store">
-  <h2 class="section-title">Digital Store</h2>
-
-  <p class="section-description">
-    Explore digital products created for modern businesses and creators.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="icon">📘</div>
-     <h3>Nature Adventures — Coloring Book</h3>
-      <p>
-        A relaxing digital coloring book filled with original nature-inspired scenes to color and enjoy.
-      </p>
-      <p><strong>Digital Product</strong></p>
-      <a href="#" class="button">View Product</a>
-    </div>
-
-    <div class="card">
-     <div class="icon">🌿</div>
-      <h3>Business Planning Template</h3>
-      <p>
-        A simple digital template for organizing business ideas and goals.
-      </p>
-      <p><strong>Digital Product</strong></p>
-      <a href="product.html" class="button">View Product</a>
-    </div>
-
-    <div class="card">
-      <div class="icon">🤖</div>
-      <h3>AI Workflow Pack</h3>
-      <p>
-        Digital resources for planning and organizing AI-assisted workflows.
-      </p>
-      <p><strong>Digital Product</strong></p>
-      <a href="product.html" class="button">View Product</a>
-    </div>
-
-  </div>
-</section>
 </body>
 </html>
