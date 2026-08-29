@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -31,6 +31,9 @@
       top: 0;
       background: rgba(7, 11, 20, 0.95);
       z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header a {
@@ -40,6 +43,15 @@
 
     header a:hover {
       color: white;
+    }
+
+    .cart {
+      color: white;
+      text-decoration: none;
+      background: #1976d2;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
     }
 
     main {
@@ -101,12 +113,6 @@
       list-style: none;
     }
 
-    .note {
-      color: #9ca9bd;
-      font-size: 14px;
-      margin-top: 20px;
-    }
-
     .button {
       display: inline-block;
       padding: 15px 25px;
@@ -115,6 +121,9 @@
       text-decoration: none;
       border-radius: 8px;
       margin-right: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
       transition: 0.2s ease;
     }
 
@@ -128,6 +137,20 @@
       border: 1px solid #34425c;
     }
 
+    .cart-message {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: #0e1524;
+      border: 1px solid #31527f;
+      border-radius: 12px;
+      color: #cbd5e1;
+    }
+
+    .cart-message strong {
+      color: white;
+    }
+
     footer {
       padding: 35px;
       text-align: center;
@@ -136,6 +159,11 @@
     }
 
     @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
       main {
         padding-top: 50px;
       }
@@ -151,6 +179,10 @@
 
   <header>
     <a href="index.html">← Back to AI Business</a>
+
+    <a href="#cart" class="cart">
+      🛒 Cart <span id="cartCount">0</span>
+    </a>
   </header>
 
   <main>
@@ -163,44 +195,68 @@
 
     <p class="description">
       Escape into nature with a relaxing digital coloring book
-      filled with original nature-inspired scenes to color,
+      filled with beautiful nature-inspired scenes to color,
       explore, and enjoy.
     </p>
 
-    <div class="price">$9.99</div>
+    <div class="price">$4.99</div>
 
     <div class="features">
 
       <h2>What's included?</h2>
 
       <ul>
+        <li>✓ 24-page digital coloring book</li>
         <li>✓ Original nature-inspired coloring pages</li>
         <li>✓ Animals, plants, landscapes, and outdoor scenes</li>
-        <li>✓ Printable digital pages</li>
-        <li>✓ Simple designs suitable for relaxing coloring</li>
+        <li>✓ High-quality printable PDF</li>
         <li>✓ Digital product — no physical shipping</li>
       </ul>
 
     </div>
 
-    <a href="#" class="button">
-      Purchase — Coming Soon
-    </a>
+    <button class="button" onclick="addToCart()">
+      🛒 Add to Cart
+    </button>
 
     <a href="index.html#store" class="button back">
       ← Back to Store
     </a>
 
-    <p class="note">
-      The purchase system is not connected yet. We are building
-      the product and checkout system next.
-    </p>
+    <div id="cart" class="cart-message">
+      <strong>🛒 Your Cart</strong>
+      <p id="cartText">Your cart is empty.</p>
+    </div>
 
   </main>
 
   <footer>
     © 2026 AI Business — Built for an AI-powered future.
   </footer>
+
+  <script>
+
+    let cartCount = 0;
+
+    function addToCart() {
+
+      cartCount++;
+
+      document.getElementById("cartCount").textContent = cartCount;
+
+      document.getElementById("cartText").innerHTML =
+        "🌿 <strong>Nature Adventures — Coloring Book</strong><br>" +
+        "Price: $4.99<br><br>" +
+        "Item added to your cart successfully!";
+
+      document.getElementById("cart").style.display = "block";
+
+      document.getElementById("cart").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+  </script>
 
 </body>
 </html>
